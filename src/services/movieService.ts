@@ -10,7 +10,10 @@ interface FetchMovieResponse {
   page: number;
 }
 
-export async function fetchMovie(topic: string, page: number) {
+export async function fetchMovie(
+  topic: string,
+  page: number
+): Promise<FetchMovieResponse> {
   const response = await axios.get<FetchMovieResponse>(URL, {
     params: {
       query: topic,
@@ -18,13 +21,9 @@ export async function fetchMovie(topic: string, page: number) {
     },
     headers: {
       accept: "application/json",
-       Authorization: `Bearer ${myKey}`,
+      Authorization: `Bearer ${myKey}`,
     },
   });
 
-  return {
-    movies: response.data.results,
-    totalPages: response.data.total_pages,
-    page: response.data.page
-  };
+  return response.data; 
 }
