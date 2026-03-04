@@ -1,7 +1,7 @@
 import SearchBar from "../SearchBar/SearchBar";
 import { useState } from "react";
 import { useQuery, keepPreviousData } from "@tanstack/react-query";
-import { fetchMovie } from "../../services/movieServices";
+import { fetchMovie } from "../../services/movieService";
 import MovieGriad from "../MovieGrid/MovieGrid";
 import type { Movie } from "../../types/movie";
 import MovieModal from "../MovieModal/MovieModal";
